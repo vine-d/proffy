@@ -46,6 +46,7 @@ input,
 button,
 textarea {
 	font: 500 1.6rem Poppings;
+	color: var(--color-text-base);
 }
 
 @media (min-width: 700px) {
