@@ -22,6 +22,5 @@ export default class ConnectionsController {
 				error: 'Unexpected error while creating new connection'
 			})
 		}
-
 	}
 }
