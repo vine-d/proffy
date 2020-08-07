@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
 const styles = StyleSheet.create({
 	container: {
