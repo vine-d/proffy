@@ -7,29 +7,41 @@ import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
-function TeacherItem() {
+export interface Teacher {
+	id: number
+	name: string
+	avatar: string
+	bio: string
+	subject: string
+	cost: number
+	whatsapp: string
+}
+
+interface TeacherItemProps {
+	teacher: Teacher
+}
+
+const TeacherItem:React.FC<TeacherItemProps> = ({ teacher }) => {
 	return (
 		<View style={styles.container} >
 			<View style={styles.profile}>
 				<Image
-					source={{ uri: "https://avatars3.githubusercontent.com/u/1598657?s=460&u=8aea005900b0d02ff50d20f53db8c9d51e2b17b3&v=4" }}
+					source={{ uri: teacher.avatar }}
 					style={styles.avatar}
 				/>
 
 				<View style={styles.profileInfo}>
-					<Text style={styles.name}>Vinícius Dutra</Text>
-					<Text style={styles.subject}>DevOps Engineer</Text>
+					<Text style={styles.name}>{teacher.name}</Text>
+					<Text style={styles.subject}>{teacher.subject}</Text>
 				</View>
 			</View>
 			<Text style={styles.bio}>
-				Uma bio bem bacana para um devops engineer fullstack hackudao.
-				{'\n\n'}
-				Focado e obstinado!
+				{teacher.bio}
 			</Text>
 			<View style={styles.footer}>
 				<Text style={styles.price}>
 					Preço/hora{'   '}
-					<Text style={styles.priceValue}>R$125</Text>
+					<Text style={styles.priceValue}>R${teacher.cost}</Text>
 				</Text>
 			</View>
 			<View style={styles.buttonsContainer}>
