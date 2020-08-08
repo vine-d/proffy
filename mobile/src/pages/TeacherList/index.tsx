@@ -26,7 +26,7 @@ function TeacherList() {
 				setFavorites(favoritedTeachersIds)
 			}
 		})
-	},[])
+	},[teachers])
 
 	function handleToogleIsFilterVisible() {
 		setIsFiltersVisible(!isFiltersVisible)
