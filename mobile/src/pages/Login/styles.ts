@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 	},
 
 	loginInputsTitle: {
-		fontFamily: 'Archivo_700Bold',
+		fontFamily: 'Poppins_600SemiBold',
 		color: '#32264D',
 		fontSize: 24,
 		lineHeight: 34,
@@ -70,15 +70,6 @@ const styles = StyleSheet.create({
 		color: '#9C98A6',
 		fontFamily: 'Poppins_400Regular',
 		fontSize: 12,
-	},
-
-	input: {
-		height: 42,
-		backgroundColor: '#FAFAFC',
-		borderRadius: 2,
-		justifyContent: 'center',
-		paddingHorizontal: 16,
-		marginVertical: 1,
 	},
 
 	loginInputsFooter:{

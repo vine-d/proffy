@@ -6,6 +6,7 @@ import styles from './styles';
 import loginBackground from '../../assets/images/login-background.png';
 import proffyLogo from '../../assets/images/logo.png'
 import { RectButton } from 'react-native-gesture-handler';
+import InputText from '../../components/InputText';
 
 function Login() {
 
@@ -33,16 +34,8 @@ function Login() {
 						<Text style={styles.headerButtonText}>Criar uma conta</Text>
 					</TouchableOpacity>
 				</View>
-				<TextInput
-					style={styles.input}
-					textContentType='emailAddress'
-					placeholder="E-mail"
-				/>
-				<TextInput
-					style={styles.input}
-					textContentType='password'
-					placeholder="Senha"
-				/>
+				<InputText title='E-mail' />
+				<InputText title='Password' />
 				<View style={styles.loginInputsFooter}>
 					<View style={styles.remember}>
 						<CheckBox

@@ -10,3 +10,11 @@
 - Route to create new classe;
 - Route to list classes;
     - Filter by: Subject, Week day and Time.
+
+## Register
+
+- Route to create new user
+
+## Authenticate
+
+- Route to authenticate a user
