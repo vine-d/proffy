@@ -4,7 +4,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 import styles from './styles';
 import loginBackground from '../../assets/images/login-background.png';
-import proffyLogo from '../../assets/images/logo.png'
+import proffyLogo from '../../assets/images/logo-big.png'
 import { RectButton } from 'react-native-gesture-handler';
 import InputText from '../../components/InputText';
 
@@ -18,14 +18,19 @@ function Login() {
 
 	return (
 		<View style={styles.container}>
-			<ImageBackground
-				source={loginBackground}
-				resizeMode="contain"
-				style={styles.background}
-			>
-				<Image source={proffyLogo} resizeMode='contain' style={styles.logo} />
-				<Text style={styles.description}>Sua plataforma de estudos online.</Text>
-			</ImageBackground>
+			<View style={styles.headerContainer}>
+				<ImageBackground
+					source={loginBackground}
+					resizeMode="contain"
+					style={styles.background}
+				>
+					<View style={styles.headerLogo}>
+						<Image source={proffyLogo} resizeMode='contain'/>
+						<Text style={styles.description}>Sua plataforma de estudos online.</Text>
+					</View>
+
+				</ImageBackground>
+			</View>
 
 			<View style={styles.loginInputsContainer}>
 				<View style={styles.loginInputsHeader}>

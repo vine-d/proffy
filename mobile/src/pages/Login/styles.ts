@@ -7,16 +7,20 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 
+	headerContainer: {
+		flex: 1,
+		alignContent: 'center',
+		alignItems: 'center',
+	},
+
 	background: {
 		flex: 1,
 		justifyContent: 'center',
-		padding: 80,
+		width: 300,
 	},
 
-	logo: {
-		resizeMode: 'contain',
-		width: 160,
-		height: 47,
+	headerLogo: {
+		padding: '20%'
 	},
 
 	description: {
