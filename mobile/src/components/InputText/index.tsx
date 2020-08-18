@@ -5,16 +5,21 @@ import { Feather } from '@expo/vector-icons';
 import styles from './styles'
 
 interface InputTextProps {
-	title?: string
-	visibilityToggle?: boolean
+	title: string
+	groupPosition?: string
+	contentVisibilityToggle?: boolean
 }
 
-const InputText:React.FC<InputTextProps> = ({ title, children, visibilityToggle }) => {
+const InputText:React.FC<InputTextProps> = ({ title, groupPosition, contentVisibilityToggle }) => {
 
 	return (
-		<View style={styles.container}>
-			<TextInput style={styles.input} placeholder={title} >
-			</TextInput>
+		<View style={[
+			styles.container,
+			groupPosition === 'top' ? styles.containerTop : {},
+			groupPosition === 'bottom' ? styles.containerBottom : {}
+		]}
+		>
+			<TextInput style={styles.input} placeholder={title} />
 		</View>
 	)
 }

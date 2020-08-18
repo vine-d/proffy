@@ -10,6 +10,14 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		justifyContent: 'center',
 	},
+	containerTop: {
+		borderBottomLeftRadius: 0,
+		borderBottomRightRadius: 0
+	},
+	containerBottom: {
+		borderTopLeftRadius: 0,
+		borderTopRightRadius: 0
+	},
 
 	input: {
 		fontFamily: 'Poppins_400Regular',

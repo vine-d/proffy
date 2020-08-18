@@ -39,8 +39,8 @@ function Login() {
 						<Text style={styles.headerButtonText}>Criar uma conta</Text>
 					</TouchableOpacity>
 				</View>
-				<InputText title='E-mail' />
-				<InputText title='Password' />
+				<InputText title='E-mail' groupPosition='top' />
+				<InputText title='Password' groupPosition='bottom' />
 				<View style={styles.loginInputsFooter}>
 					<View style={styles.remember}>
 						<CheckBox
