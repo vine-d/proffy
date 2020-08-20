@@ -3,6 +3,7 @@ import { View, Image, Text, TouchableOpacity, ImageBackground, TextInput } from 
 import CheckBox from '@react-native-community/checkbox';
 
 import styles from './styles';
+import { useAuth } from '../../contexts/auth';
 import loginBackground from '../../assets/images/login-background.png';
 import proffyLogo from '../../assets/images/logo-big.png'
 import { RectButton } from 'react-native-gesture-handler';
@@ -10,9 +11,15 @@ import InputText from '../../components/InputText';
 
 function Login() {
 
+	const { signed, login } = useAuth()
+
 	const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
-	function handleToggleCheckBox(){
+	function handleLogin() {
+		login()
+	}
+
+	function handleToggleCheckBox() {
 		setToggleCheckBox(!toggleCheckBox)
 	}
 
@@ -54,7 +61,7 @@ function Login() {
 					</TouchableOpacity>
 				</View>
 
-				<RectButton onPress={ ()=>{} } style={styles.loginButton}>
+				<RectButton onPress={ handleLogin } style={styles.loginButton}>
 					<Text style={styles.loginButtonText}>Entrar</Text>
 				</RectButton>
 

@@ -4,8 +4,9 @@ import { AppLoading } from 'expo';
 
 import { useFonts, Archivo_400Regular, Archivo_700Bold } from '@expo-google-fonts/archivo';
 import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import AppStack from './src/routes/AppStack';
-import AuthStack from './src/routes/AuthStack';
+import Routes from './src/routes'
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthProvider } from './src/contexts/auth';
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -14,15 +15,17 @@ export default function App() {
 		Poppins_400Regular,
 		Poppins_600SemiBold
 	  });
+
 	  if (!fontsLoaded) {
 		return <AppLoading />;
 	  } else {
 		return (
-			<>
-				{false && <AppStack />}
-				<AuthStack />
-				<StatusBar style="auto" />
-			</>
+			<NavigationContainer>
+				<AuthProvider>
+					<Routes />
+					<StatusBar style="auto" />
+				</AuthProvider>
+			</NavigationContainer>
 		)
 	}
 }
