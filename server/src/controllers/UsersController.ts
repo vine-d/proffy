@@ -10,21 +10,24 @@ export default class ClassesController {
 			password,
 		} = request.body
 
+		const bcrypt = require('bcrypt');
+		const passwordHash = await bcrypt.hash(password,8)
+
 		const trx = await db.transaction()
 
 		try {
-			const insertedUsersIds = await trx('users').insert({
+			await trx('users').insert({
 				name,
 				surname,
 				email,
-				password
+				passwordHash
 			})
 
-			const user_id = insertedUsersIds[0]
 			await trx.commit()
 			return response.status(201).send()
 
 		} catch (err) {
+			console.log(err)
 			await trx.rollback()
 			return response.status(400).json({
 				error: 'Unexpected error while creating new user'
