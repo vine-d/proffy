@@ -3,13 +3,22 @@ import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
 
 import * as auth from '../services/auth';
-
 interface AuthContextData {
 	signed: boolean
 	user: object|null
 	loading: boolean
-	login(): Promise<void>
+	login(email:string, password:string): Promise<void>
 	logout(): void
+}
+
+interface ApiAuthenticationResponse {
+	user: {
+		user_id: number
+		email: string
+		name: string
+		surname: string
+	}
+	token: string
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData)
@@ -31,8 +40,9 @@ export const AuthProvider: React.FC = ({children}) => {
 		loadStorageData()
 	},[])
 
-	async function login() {
-		const response = await auth.login()
+	async function login(email: string, password: string) {
+		const responseApi = await api.post('authentication', {email,password})
+		const response: ApiAuthenticationResponse = responseApi.data
 		setUser(response.user)
 
 		api.defaults.headers['Authorization'] = `Bearer ${response.token}`

@@ -15,6 +15,7 @@ routes.post('/connections', connectionsController.create)
 routes.get('/connections', connectionsController.index)
 
 routes.post('/users', usersController.create)
+
 routes.post('/authentication', usersController.authentication)
 
 export default routes

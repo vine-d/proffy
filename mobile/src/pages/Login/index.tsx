@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, Text, TouchableOpacity, ImageBackground, TextInput } from 'react-native';
+import { View, Image, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import styles from './styles';
@@ -13,10 +13,12 @@ function Login() {
 
 	const { signed, login } = useAuth()
 
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 	const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
 	function handleLogin() {
-		login()
+		login(email, password)
 	}
 
 	function handleToggleCheckBox() {
@@ -46,8 +48,8 @@ function Login() {
 						<Text style={styles.headerButtonText}>Criar uma conta</Text>
 					</TouchableOpacity>
 				</View>
-				<InputText title='E-mail' groupPosition='top' />
-				<InputText title='Password' groupPosition='bottom' />
+				<InputText title='E-mail' groupPosition='top' value={email} onChange={setEmail} />
+				<InputText title='Password' groupPosition='bottom' value={password} onChange={setPassword} />
 				<View style={styles.loginInputsFooter}>
 					<View style={styles.remember}>
 						<CheckBox
