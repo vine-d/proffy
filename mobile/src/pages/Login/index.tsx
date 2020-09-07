@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 import { useAuth } from '../../contexts/auth';
@@ -13,9 +14,15 @@ function Login() {
 
 	const { signed, login } = useAuth()
 
+	const { navigate } = useNavigation()
+
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
+	function handleNavigationToRegister(){
+		navigate('Register1')
+	}
 
 	function handleLogin() {
 		login(email, password)
@@ -44,7 +51,7 @@ function Login() {
 			<View style={styles.loginInputsContainer}>
 				<View style={styles.loginInputsHeader}>
 					<Text style={styles.loginInputsTitle}>Fazer login</Text>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={handleNavigationToRegister}>
 						<Text style={styles.headerButtonText}>Criar uma conta</Text>
 					</TouchableOpacity>
 				</View>
