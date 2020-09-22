@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { View, Image, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 import { RectButton } from 'react-native-gesture-handler';
 import InputText from '../../components/InputText';
+import { useRegisterForm } from '../../contexts/register-form-context';
 
 function Register1() {
-
-	const [name, setName] = useState('')
-	const [surname, setSurname] = useState('')
+	const form = useRegisterForm()
 
 	const { navigate } = useNavigation()
 
@@ -27,8 +26,8 @@ function Register1() {
 				<View style={styles.registerInputsHeader}>
 					<Text style={styles.registerInputsTitle}>01. Quem é você?</Text>
 				</View>
-				<InputText title='Nome' groupPosition='top' value={name} onChange={setName} />
-				<InputText title='Sobrenome' groupPosition='bottom' value={surname} onChange={setSurname} />
+				<InputText title='Nome' groupPosition='top' value={form.name} onChange={form.setName} />
+				<InputText title='Sobrenome' groupPosition='bottom' value={form.surname} onChange={form.setSurname} />
 
 				<RectButton onPress={ handleNavigationToRegister2 } style={styles.registerButton}>
 					<Text style={styles.registerButtonText}> Próximo </Text>
