@@ -1,24 +1,25 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useRegisterForm } from '../../contexts/register-form-context';
+import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
-import { RectButton } from 'react-native-gesture-handler';
 import InputText from '../../components/InputText';
-import { useRegisterForm } from '../../contexts/register-form-context';
+import api from '../../services/api';
 
 function Register2() {
 	const form = useRegisterForm()
 	const { navigate } = useNavigation()
 
-	function handleUserRegister(){
+	async function handleUserRegister(){
 		let user = {
 			'name' : form.name,
 			'surname' : form.surname,
 			'email' : form.email,
 			'password' : form.password
 		}
-		console.log(user)
+		await api.post('users', user)
 		navigate('RegisterOk')
 	}
 
