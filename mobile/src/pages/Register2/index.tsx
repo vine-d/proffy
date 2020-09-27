@@ -28,7 +28,6 @@ function Register2() {
 			<View style={styles.headerContainer}>
 				<Text style={styles.title}>Crie sua conta gratuíta</Text>
 				<Text style={styles.description}>Basta preencher esses dados e você estará conosco.</Text>
-				<Text>{ form.name +' '+ form.surname }</Text>
 			</View>
 
 			<View style={styles.registerInputsContainer}>
